@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management | Maulik Jewels Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div style="margin-bottom: 3rem;">
+                <a href="index.html" class="logo" style="color: var(--dark); font-size: 1.5rem;">
+                     <i class="fa-solid fa-gem" style="color: var(--accent);"></i> MAULIK<span>JEWELS</span>
+                </a>
+                <p style="font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; margin-top: 5px; letter-spacing: 1px;">Admin Portal</p>
+            </div>
+            
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin-dashboard.html"><i class="fa-solid fa-layer-group"></i> <span>Inventory</span></a></li>
+                    <li><a href="admin-orders.html" class="active"><i class="fa-solid fa-cart-shopping"></i> <span>Orders</span></a></li>
+                    <li><a href="admin-customers.html"><i class="fa-solid fa-users"></i> <span>Customers</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-line"></i> <span>Analytics</span></a></li>
+                    <li style="margin-top: 2rem;"><a href="admin-settings.html"><i class="fa-solid fa-gear"></i> <span>Settings</span></a></li>
+                    <li><a href="#" id="admin-logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Logout</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="admin-sidebar-user-section" style="position: absolute; bottom: 2rem; left: 2rem; display:flex; gap: 1rem; align-items:center;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-shrink: 0;">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div class="admin-sidebar-user-details">
+                    <h5 style="margin:0; font-size: 0.9rem;">Admin User</h5>
+                    <p style="margin:0; font-size: 0.75rem; color: #64748b;">admin@maulikjewels.com</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div style="margin-bottom: 2.5rem; display:flex; justify-content:space-between; align-items:flex-end;">
+                <div>
+                    <p style="font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Admin <span style="margin: 0 5px;">&rsaquo;</span> Orders Management</p>
+                    <h1 style="font-size: 2.2rem; color: var(--dark);">Order Management</h1>
+                    <p style="color: #64748b; margin-top: 5px;">Manage, filter, and track all your luxury jewelry orders.</p>
+                </div>
+                <button class="btn btn-primary" style="background: var(--accent);"><i class="fa-solid fa-file-export"></i> Export Report</button>
+            </div>
+
+            <!-- Filters Area -->
+            <div class="admin-card" style="margin-bottom: 1.5rem; padding: 1.5rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap: 1.5rem;">
+                    <div style="position:relative; flex: 1; max-width: 400px;">
+                        <i class="fa-solid fa-magnifying-glass" style="position:absolute; left: 1rem; top: 50%; transform:translateY(-50%); color: #94a3b8;"></i>
+                        <input type="text" placeholder="Search by Order ID, Customer Name..." style="width: 100%; padding: 0.8rem 1rem 0.8rem 3rem; border: 1px solid #f1f5f9; background: #f8fafc; border-radius: 8px;">
+                    </div>
+                    
+                    <div style="display:flex; align-items:center; gap: 1rem;">
+                        <span style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Status:</span>
+                        <div style="display:flex; gap: 0.5rem;">
+                            <button class="filter-tab active">All</button>
+                            <button class="filter-tab">Processing</button>
+                            <button class="filter-tab">Shipped</button>
+                            <button class="filter-tab">Delivered</button>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; align-items:center; gap: 1rem;">
+                        <span style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase;">Date:</span>
+                        <select style="padding: 0.8rem; border: 1px solid #f1f5f9; background: #f8fafc; border-radius: 8px; font-size: 0.9rem; min-width: 150px;">
+                            <option>Last 30 Days</option>
+                            <option>Last 90 Days</option>
+                            <option>Custom Range</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="admin-card">
+                <div class="orders-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ORDER ID</th>
+                                <th>CUSTOMER</th>
+                                <th>DATE</th>
+                                <th>TOTAL AMOUNT</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table-body">
+                            <!-- Filled by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 2rem; display:flex; justify-content:space-between; align-items:center;">
+                    <p style="color: #64748b; font-size: 0.9rem;">Showing <span style="font-weight: 600; color: var(--dark);">1 to 5</span> of 24 results</p>
+                    <div class="pagination">
+                        <button class="page-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        .filter-tab {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            background: transparent;
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-tab:hover { background: #f1f5f9; }
+        .filter-tab.active { background: #e6fef5; color: var(--accent); }
+
+        .pagination { display: flex; gap: 0.5rem; }
+        .page-btn {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #f1f5f9;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            color: #64748b;
+            transition: all 0.2s ease;
+        }
+        .page-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .page-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+        .status-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .status-badge::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+        .status-processing { background: #fffaf0; color: #ed8936; }
+        .status-shipped { background: #ebf8ff; color: #3182ce; }
+        .status-delivered { background: #f0fff4; color: #38a169; }
+        .status-cancelled { background: #fff5f5; color: #e53e3e; }
+
+        .action-icon {
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+        .action-icon:hover { color: var(--accent); }
+    </style>
+
+    <script src="admin.js"></script>
+    <script>
+        // Dummy Orders Logic (Integrated with admin.js security)
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableBody = document.getElementById('orders-table-body');
+            const dummyOrders = [
+                { id: "#MJ-8821", name: "Sophia Laurent", email: "sophia.l@email.com", date: "Oct 24, 2023", amount: "$4,250.00", status: "Processing" },
+                { id: "#MJ-8819", name: "Marcus Vane", email: "m.vane@lux.com", date: "Oct 23, 2023", amount: "$12,800.00", status: "Shipped" },
+                { id: "#MJ-8815", name: "Isabella Chen", email: "i.chen@design.co", date: "Oct 21, 2023", amount: "$1,450.00", status: "Delivered" },
+                { id: "#MJ-8812", name: "David Wright", email: "wright.d@global.net", date: "Oct 20, 2023", amount: "$2,100.00", status: "Cancelled" },
+                { id: "#MJ-8810", name: "Elena Rossi", email: "rossi.e@mail.it", date: "Oct 19, 2023", amount: "$7,400.00", status: "Shipped" }
+            ];
+
+            tableBody.innerHTML = dummyOrders.map(order => `
+                <tr>
+                    <td style="font-weight: 700;">${order.id}</td>
+                    <td>
+                        <div style="font-weight: 600;">${order.name}</div>
+                        <div style="font-size: 0.75rem; color: #94a3b8;">${order.email}</div>
+                    </td>
+                    <td style="color: #64748b;">${order.date}</td>
+                    <td style="font-weight: 700; color: var(--dark);">${order.amount}</td>
+                    <td><span class="status-badge status-${order.status.toLowerCase()}">${order.status}</span></td>
+                    <td>
+                        <div style="display:flex; gap: 1rem; align-items:center;">
+                            <i class="fa-regular fa-eye action-icon" title="View Order"></i>
+                            <i class="fa-solid fa-bars-staggered action-icon" title="Manage Status"></i>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        });
+    </script>
+</body>
+</html>

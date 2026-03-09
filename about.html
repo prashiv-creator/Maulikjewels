@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Maulik Jewels</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo"><i class="fa-solid fa-gem"></i> MAULIK<span>JEWELS</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="about.html" class="active">Our Story</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="icon-btn" id="cart-btn"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></button>
+                    <a href="admin-login.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Admin Login</a>
+                </div>
+                <button class="menu-toggle"><i class="fa-solid fa-bars-staggered"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="about-hero" style="padding-top: 150px;">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Legacy of Maulik Jewels</h2>
+                <div class="section-line"></div>
+                <p>Crafting timeless elegance and celebrating the journey of exquisite artistry for over four decades. Our heritage is woven into every diamond we set.</p>
+            </div>
+            
+            <div class="about-content" style="display:grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 4rem;">
+                <div class="about-img animate-fade">
+                    <img src="assets/images/hero.png" alt="Our Heritage" style="border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+                </div>
+                <div class="about-text animate-fade" style="animation-delay: 0.2s;">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 1.5rem;">A Commitment to Timeless Elegance</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Founded in 1982, Maulik Jewels began as a small atelier driven by a singular vision: to create jewelry that transcends generations. What started with a passion for rare gemstones has evolved into a global symbol of luxury and bespoke craftsmanship.</p>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">Our narrative is one of passion, where every bespoke design tells a unique story. We believe that jewelry is not just an accessory, but an intimate expression of one's journey, milestones, and legacy.</p>
+                    
+                    <div style="display:flex; gap: 3rem;">
+                        <div>
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--accent);">40+</div>
+                            <div style="font-size: 0.8rem; text-transform: uppercase;">Years of Experience</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--accent);">15k+</div>
+                            <div style="font-size: 0.8rem; text-transform: uppercase;">Bespoke Pieces</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values" style="background: var(--dark-alt);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="values-grid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                <div class="value-card" style="padding: 2.5rem; background: var(--dark); border: 1px solid var(--glass-border); border-radius: 8px; text-align: center;">
+                    <i class="fa-solid fa-medal" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Uncompromising Quality</h3>
+                    <p style="color: var(--text-muted);">We source only the finest gems and precious metals, ensuring every piece meets our rigorous standards of excellence.</p>
+                </div>
+                <div class="value-card" style="padding: 2.5rem; background: var(--dark); border: 1px solid var(--glass-border); border-radius: 8px; text-align: center;">
+                    <i class="fa-solid fa-leaf" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Ethical Sourcing</h3>
+                    <p style="color: var(--text-muted);">Our materials are ethically sourced, following global standards for environmental and social responsibility.</p>
+                </div>
+                <div class="value-card" style="padding: 2.5rem; background: var(--dark); border: 1px solid var(--glass-border); border-radius: 8px; text-align: center;">
+                    <i class="fa-solid fa-hand-holding-heart" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1.5rem;"></i>
+                    <h3 style="margin-bottom: 1rem;">Bespoke Artistry</h3>
+                    <p style="color: var(--text-muted);">Every design is a collaborative journey, resulting in a one-of-a-kind masterpiece that reflects your personal style.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area (Slightly shorter) -->
+    <footer style="margin-top: 4rem;">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maulik Jewels. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Side Panel Components -->
+    <div id="cart-sidebar">
+        <div class="cart-header"><h3>Shopping Bag</h3><button id="close-cart" class="icon-btn"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="cart-items"></div>
+        <div class="cart-total"><span>Total:</span><span class="cart-total-amount">$0.00</span></div>
+        <button class="btn btn-primary" style="width: 100%;">Checkout</button>
+    </div>
+    <div class="overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

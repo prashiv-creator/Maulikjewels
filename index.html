@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maulik Jewels | Exquisite Jewelry for Every Occasion</title>
+    <meta name="description" content="Discover curated collections of luxury rings, necklaces, earrings, and bracelets at Maulik Jewels. Handcrafted elegance for the modern individual.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                     <i class="fa-solid fa-gem"></i> MAULIK<span>JEWELS</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="icon-btn" id="cart-btn">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <!-- Auth UI will be injected here by script.js -->
+                    <a href="admin-login.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Admin Login</a>
+                </div>
+                <button class="menu-toggle"><i class="fa-solid fa-bars-staggered"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('assets/images/hero.png');">
+        <div class="container">
+            <div class="hero-content animate-fade">
+                <span class="hero-badge">Curated Collections 2026</span>
+                <h1>Exquisite <span>Craftsmanship</span></h1>
+                <p>Experience the allure of high-end diamonds and gold jewelry, meticulously designed to celebrate your most precious moments.</p>
+                <div class="hero-btns">
+                    <a href="products.html" class="btn btn-primary">Shop Collection <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="about.html" class="btn btn-outline">Explore Heritage</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Categories</h2>
+                <div class="section-line"></div>
+                <p>Find the perfect piece of art for your next breakthrough moment.</p>
+            </div>
+            
+            <div class="category-grid">
+                <div class="category-card" onclick="window.location.href='products.html?category=Rings'">
+                    <img src="assets/images/diamond_ring.png" alt="Rings">
+                    <div class="category-overlay">
+                        <h3>Rings</h3>
+                    </div>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=Necklaces'">
+                    <img src="assets/images/emerald_necklace.png" alt="Necklaces">
+                    <div class="category-overlay">
+                        <h3>Necklaces</h3>
+                    </div>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=Earrings'">
+                    <img src="assets/images/gold_earrings.png" alt="Earrings">
+                    <div class="category-overlay">
+                        <h3>Earrings</h3>
+                    </div>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=Bracelets'">
+                    <img src="assets/images/pearl_bracelet.png" alt="Bracelets">
+                    <div class="category-overlay">
+                        <h3>Bracelets</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2>New Arrivals</h2>
+                <div class="section-line"></div>
+                <p>Discover our latest creations, freshly crafted by our master artisans.</p>
+            </div>
+            
+            <div class="product-grid" id="featured-products-container">
+                <!-- Products will be injected via script -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 4rem;">
+                <a href="products.html" class="btn btn-ghost">View All Collections</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter" style="background: var(--primary-light);">
+        <div class="container" style="text-align: center; max-width: 800px;">
+            <div class="section-header">
+                <h2>Join the Inner Circle</h2>
+                <p>Subscribe to receive updates on new arrivals, exclusive events, and the art of fine jewelry.</p>
+            </div>
+            <form id="newsletter-form" style="display:flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
+                <input type="email" placeholder="Your Email Address" style="flex: 1; padding: 1rem; border: none; border-radius: 4px; min-width: 250px; background: rgba(255,255,255,0.1); color: white;" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo">
+                        <i class="fa-solid fa-gem"></i> MAULIK<span>JEWELS</span>
+                    </a>
+                    <p>Creating exceptional jewelry that celebrates your most precious moments, handcrafted with love and ethics.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Collections</a></li>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Custom Design</a></li>
+                        <li><a href="#">Jewelry Repair</a></li>
+                        <li><a href="#">Cleaning & Polishing</a></li>
+                        <li><a href="#">Valuation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><i class="fa-solid fa-location-dot" style="color: var(--accent); margin-right: 10px;"></i> 123 Jewelry Ave, NY</li>
+                        <li><i class="fa-solid fa-phone" style="color: var(--accent); margin-right: 10px;"></i> +1 (234) 567-890</li>
+                        <li><i class="fa-solid fa-envelope" style="color: var(--accent); margin-right: 10px;"></i> hello@maulikjewels.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maulik Jewels. All rights reserved. | <a href="#">Privacy Policy</a></p>
+                <div style="display:flex; gap: 1rem;">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-cc-amex"></i>
+                    <i class="fa-brands fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Shopping Bag</h3>
+            <button id="close-cart" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items injected by JS -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal:</span>
+                <span class="cart-total-amount">$0.00</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%; margin-bottom: 1rem;">Checkout</button>
+            <button class="btn btn-ghost" style="width: 100%;">View Bag Details</button>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Homepage specific logic
+        document.addEventListener('DOMContentLoaded', async () => {
+            const products = (await getSupabaseProducts()).slice(0, 4); // Get first 4 products
+            const container = document.getElementById('featured-products-container');
+            
+            if (container) {
+                products.forEach(p => {
+                    const productHtml = `
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="${p.image}" alt="${p.name}">
+                                <div class="product-badge">New Arrival</div>
+                                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                            </div>
+                            <div class="product-info">
+                                <div class="p-meta">${p.category} • ${p.material}</div>
+                                <h3><a href="product-detail.html?id=${p.id}">${p.name}</a></h3>
+                                <div class="p-price">
+                                    <span>$${p.price.toLocaleString()}</span>
+                                    <button onclick="addToCart(${p.id})" class="p-add-cart"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += productHtml;
+                });
+            }
+
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    alert('Thank you for subscribing to Maulik Jewels newsletter!');
+                    newsletterForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

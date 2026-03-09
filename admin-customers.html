@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management | Maulik Jewels Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div style="margin-bottom: 3rem;">
+                <a href="index.html" class="logo" style="color: var(--dark); font-size: 1.5rem;">
+                     <i class="fa-solid fa-gem" style="color: var(--accent);"></i> MAULIK<span>JEWELS</span>
+                </a>
+                <p style="font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; margin-top: 5px; letter-spacing: 1px;">Admin Portal</p>
+            </div>
+            
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin-dashboard.html"><i class="fa-solid fa-layer-group"></i> <span>Inventory</span></a></li>
+                    <li><a href="admin-orders.html"><i class="fa-solid fa-cart-shopping"></i> <span>Orders</span></a></li>
+                    <li><a href="admin-customers.html" class="active"><i class="fa-solid fa-users"></i> <span>Customers</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-line"></i> <span>Analytics</span></a></li>
+                    <li style="margin-top: 2rem;"><a href="admin-settings.html"><i class="fa-solid fa-gear"></i> <span>Settings</span></a></li>
+                    <li><a href="#" id="admin-logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Logout</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="admin-sidebar-user-section" style="position: absolute; bottom: 2rem; left: 2rem; display:flex; gap: 1rem; align-items:center;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-shrink: 0;">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div class="admin-sidebar-user-details">
+                    <h5 style="margin:0; font-size: 0.9rem;">Admin User</h5>
+                    <p style="margin:0; font-size: 0.75rem; color: #64748b;">admin@maulikjewels.com</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div style="margin-bottom: 2.5rem; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <p style="font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase;">Admin <span style="margin:0 5px;">&rsaquo;</span> Customer Management</p>
+                    <h1 style="font-size: 2.2rem; margin-top: 0.5rem; color: var(--dark);">Customer Management</h1>
+                    <p style="color: #64748b; margin-top: 5px;">Manage your registered luxury jewelry clientele and VIP relations.</p>
+                </div>
+                <button class="btn btn-primary" style="background: var(--accent);"><i class="fa-solid fa-plus"></i> Add New Customer</button>
+            </div>
+
+            <!-- Management Tools -->
+            <div class="admin-card" style="margin-bottom: 2rem; padding: 1.5rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <div style="position:relative; flex: 1; max-width: 400px;">
+                        <i class="fa-solid fa-magnifying-glass" style="position:absolute; left: 1rem; top: 50%; transform:translateY(-50%); color: #94a3b8;"></i>
+                        <input type="text" placeholder="Search by name, email, or customer ID..." style="width: 100%; padding: 0.8rem 1rem 0.8rem 3rem; border: 1px solid #f1f5f9; background: #f8fafc; border-radius: 8px;">
+                    </div>
+                    <div style="display:flex; gap: 1rem; align-items:center;">
+                        <div style="display:flex; background:#f1f5f9; padding: 4px; border-radius: 10px;">
+                            <button class="filter-tab-pill active"><i class="fa-solid fa-list-ul"></i> All Customers</button>
+                            <button class="filter-tab-pill"><i class="fa-solid fa-star"></i> VIP</button>
+                            <button class="filter-tab-pill"><i class="fa-solid fa-user-plus"></i> New</button>
+                        </div>
+                        <button class="btn-outline-small"><i class="fa-solid fa-file-export"></i> Export</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Stats -->
+            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem;">
+                <div class="stat-mini-card">
+                    <div class="mini-icon" style="background: #f0fff4; color: #38a169;"><i class="fa-solid fa-users"></i></div>
+                    <div>
+                        <p style="color: #64748b; font-size: 0.8rem; font-weight: 500;">Total Customers</p>
+                        <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">1,248</h2>
+                    </div>
+                </div>
+                <div class="stat-mini-card">
+                    <div class="mini-icon" style="background: #ebf8ff; color: #3182ce;"><i class="fa-solid fa-certificate"></i></div>
+                    <div>
+                        <p style="color: #64748b; font-size: 0.8rem; font-weight: 500;">VIP Clientele</p>
+                        <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">154</h2>
+                    </div>
+                </div>
+                <div class="stat-mini-card">
+                    <div class="mini-icon" style="background: #fff5f5; color: #e53e3e;"><i class="fa-solid fa-chart-line"></i></div>
+                    <div>
+                        <p style="color: #64748b; font-size: 0.8rem; font-weight: 500;">Growth This Month</p>
+                        <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--dark);">+12.4%</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Table -->
+            <div class="admin-card">
+                <div class="orders-table-wrapper">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>CUSTOMER</th>
+                                <th>STATUS</th>
+                                <th>TOTAL ORDERS</th>
+                                <th>LIFETIME VALUE</th>
+                                <th>LAST ACTIVITY</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customers-table-body">
+                            <!-- Filled by JS -->
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 2rem; display:flex; justify-content:space-between; align-items:center;">
+                    <p style="color: #64748b; font-size: 0.9rem;">Showing <span style="font-weight: 600; color: var(--dark);">1 to 4</span> of 1,248 customers</p>
+                    <div class="pagination">
+                        <button class="page-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        .filter-tab-pill {
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .filter-tab-pill.active { background: white; color: var(--accent); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+
+        .btn-outline-small {
+            padding: 0.6rem 1.2rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            color: #64748b;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-outline-small:hover { border-color: var(--accent); color: var(--accent); }
+
+        .stat-mini-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            border: 1px solid #f1f5f9;
+        }
+        .mini-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .customer-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .cust-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        .badge-vip { background: #e6fef5; color: #38a169; }
+        .badge-new { background: #ebf8ff; color: #3182ce; }
+        .badge-regular { background: #f8fafc; color: #64748b; }
+
+        .btn-view-profile {
+            padding: 0.5rem 1rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-view-profile:hover { background: #f1f5f9; }
+
+        .pagination { display: flex; gap: 0.5rem; }
+        .page-btn {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #f1f5f9;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+            color: #64748b;
+        }
+        .page-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+    </style>
+
+    <script src="admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableBody = document.getElementById('customers-table-body');
+            
+            // Fetch real users from localStorage
+            let users = [];
+            try {
+                users = JSON.parse(localStorage.getItem('mj_users')) || [];
+            } catch (e) { users = []; }
+
+            const dummyCustomers = [
+                { name: "Aria Montgomery", email: "aria.m@example.com", status: "VIP", orders: 12, value: "$42,500.00", activity: "2 hours ago", initials: "AM" },
+                { name: "Julian Thorne", email: "j.thorne@business.com", status: "New", orders: 1, value: "$8,200.00", activity: "Yesterday", initials: "JT" }
+            ];
+
+            const allCustomers = [...users.map(u => ({
+                name: u.name,
+                email: u.email,
+                status: "New",
+                orders: (u.orders || []).length,
+                value: "$0.00",
+                activity: "Recently Joined",
+                initials: u.name.split(' ').map(n => n[0]).join('').toUpperCase()
+            })), ...dummyCustomers];
+
+            tableBody.innerHTML = allCustomers.map(cust => `
+                <tr>
+                    <td>
+                        <div style="display:flex; align-items:center; gap: 1rem;">
+                            <div class="customer-avatar">${cust.initials}</div>
+                            <div>
+                                <div style="font-weight: 700; color: var(--dark);">${cust.name}</div>
+                                <div style="font-size: 0.75rem; color: #94a3b8;">${cust.email}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td><span class="cust-badge badge-${cust.status.toLowerCase()}"><i class="fa-solid fa-circle" style="font-size: 0.4rem; margin-right:5px; vertical-align:middle;"></i> ${cust.status}</span></td>
+                    <td style="font-weight: 600; color: #475569;">${cust.orders} Orders</td>
+                    <td style="font-weight: 700; color: var(--dark);">${cust.value}</td>
+                    <td style="color: #64748b;">${cust.activity}</td>
+                    <td>
+                        <div style="display:flex; gap: 10px; align-items:center;">
+                            <button class="btn-view-profile">View Profile</button>
+                            <button class="icon-btn" style="background:#e6fef5; color: var(--accent); width:35px; height:35px;"><i class="fa-regular fa-envelope"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        });
+    </script>
+</body>
+</html>

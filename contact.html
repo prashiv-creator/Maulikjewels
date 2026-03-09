@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Maulik Jewels</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-v2 { padding-top: 150px; background-color: #fcfdfe; }
+        .contact-v2-header { text-align: center; max-width: 800px; margin: 0 auto 5rem; }
+        .contact-v2-header h1 { font-size: 3.5rem; color: var(--dark); margin-bottom: 1.5rem; }
+        .contact-v2-header p { color: #64748b; font-size: 1.1rem; line-height: 1.8; }
+        
+        .contact-v2-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; margin-bottom: 5rem; }
+        
+        .contact-v2-form-card { background: white; padding: 4rem; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.05); }
+        .contact-v2-form-card h2 { font-size: 2rem; margin-bottom: 2.5rem; color: var(--dark); }
+        
+        .contact-v2-info-side { display: flex; flex-direction: column; gap: 2rem; }
+        
+        .info-card-row { display: grid; grid-template-columns: 1fr 1.2fr; gap: 1.5rem; }
+        .info-mini-card { background: #f1f9f7; padding: 2rem; border-radius: 12px; display: flex; flex-direction: column; gap: 0.8rem; }
+        .info-mini-card.email { background: #fef8f1; }
+        .info-mini-card i { color: var(--accent); font-size: 1.5rem; }
+        .info-mini-card h4 { font-size: 1.1rem; color: var(--dark); }
+        .info-mini-card p { font-size: 0.9rem; color: #64748b; margin: 0; }
+        
+        .boutique-card { background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; }
+        .boutique-details h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--dark); }
+        .boutique-item { display: flex; gap: 1rem; margin-bottom: 1.2rem; }
+        .boutique-item i { color: var(--accent); margin-top: 3px; }
+        .boutique-item h5 { font-size: 1rem; margin-bottom: 0.3rem; }
+        .boutique-item p { font-size: 0.85rem; color: #64748b; margin: 0; }
+        
+        .boutique-img { border-radius: 12px; overflow: hidden; height: 100%; position: relative; }
+        .boutique-img img { width: 100%; height: 100%; object-fit: cover; }
+        .boutique-label { position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.6); color: white; padding: 4px 10px; font-size: 0.7rem; text-transform: uppercase; border-radius: 4px; }
+        
+        .map-placeholder { width: 100%; height: 300px; background: #eaeeef; border-radius: 16px; overflow: hidden; position: relative; }
+        .map-pin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--accent); font-size: 2.5rem; }
+        
+        .cta-banner { background: #e6f7f1; padding: 4rem; border-radius: 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 8rem; }
+        .cta-text h2 { font-size: 2.2rem; margin-bottom: 1rem; color: var(--dark); }
+        .cta-text p { color: #64748b; }
+        
+        @media (max-width: 1024px) {
+            .contact-v2-grid { grid-template-columns: 1fr; }
+            .boutique-card { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body style="background-color: #f8f9fa;">
+
+    <!-- Header (Same as index) -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                     <i class="fa-solid fa-gem" style="color: var(--accent);"></i> MAULIK<span>JEWELS</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="icon-btn" id="cart-btn"><i class="fa-solid fa-bag-shopping"></i><span class="cart-count">0</span></button>
+                    <a href="admin-login.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Admin Login</a>
+                </div>
+                <button class="menu-toggle"><i class="fa-solid fa-bars-staggered"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contact-v2">
+        <div class="container">
+            <div class="contact-v2-header animate-fade">
+                <h1 class="font-serif">Contact Us</h1>
+                <p>Experience the pinnacle of luxury craftsmanship. Whether you seek a custom masterpiece or have inquiries about our collections, our specialists are here to guide you.</p>
+            </div>
+
+            <div class="contact-v2-grid">
+                <!-- Form Side -->
+                <div class="contact-v2-form-card animate-fade">
+                    <h2>Send us a Message</h2>
+                    <form id="contact-v2-form" action="thank-you.html">
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="admin-form-group">
+                                <label>Full Name</label>
+                                <input type="text" placeholder="John Doe" required>
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Email Address</label>
+                                <input type="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Subject</label>
+                            <select style="width: 100%; padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 6px;">
+                                <option>General Inquiry</option>
+                                <option>Bespoke Design Request</option>
+                                <option>Order Status</option>
+                                <option>Returns & Exchanges</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Message</label>
+                            <textarea rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1.2rem; font-size: 1.1rem;">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Info Side -->
+                <div class="contact-v2-info-side animate-fade" style="animation-delay: 0.2s;">
+                    <div class="info-card-row">
+                        <div class="info-mini-card">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <h4>Call Us</h4>
+                            <p>+1 (800) 555-0123</p>
+                            <p style="font-size: 0.75rem;">Mon-Sat, 10am-7pm</p>
+                        </div>
+                        <div class="info-mini-card email">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                            <h4>Email Support</h4>
+                            <p>concierge@maulikjewels.com</p>
+                            <p style="font-size: 0.75rem;">Response within 24h</p>
+                        </div>
+                    </div>
+
+                    <div class="boutique-card">
+                        <div class="boutique-details">
+                            <h3>Visit Our Boutique</h3>
+                            <div class="boutique-item">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <div>
+                                    <h5>Flagship Store</h5>
+                                    <p>721 Fifth Avenue, Manhattan<br>New York, NY 10022</p>
+                                </div>
+                            </div>
+                            <div class="boutique-item">
+                                <i class="fa-solid fa-clock"></i>
+                                <div>
+                                    <h5>Operating Hours</h5>
+                                    <p>Mon - Fri: 10:00 AM - 8:00 PM</p>
+                                    <p>Saturday: 11:00 AM - 7:00 PM</p>
+                                    <p>Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="boutique-img">
+                            <img src="assets/images/hero.png" alt="Boutique">
+                            <span class="boutique-label">Fifth Avenue</span>
+                        </div>
+                    </div>
+
+                    <div class="map-placeholder">
+                        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1000" style="width:100%; height:100%; object-fit:cover; opacity: 0.6; filter: grayscale(100%);">
+                        <div class="map-pin">
+                            <i class="fa-solid fa-location-pin"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-banner animate-fade">
+                <div class="cta-text">
+                    <h2 class="font-serif">Design Your Masterpiece</h2>
+                    <p>Schedule an exclusive one-on-one session with our lead artisans to bring your vision of bespoke jewelry to life.</p>
+                </div>
+                <button class="btn btn-primary" style="padding: 1rem 2rem;"><i class="fa-solid fa-calendar-check" style="margin-right:10px;"></i> Book a Consultation</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Area -->
+    <footer style="background: #051511;">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maulik Jewels. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Side Panel Components -->
+    <div id="cart-sidebar">
+        <div class="cart-header"><h3>Shopping Bag</h3><button id="close-cart" class="icon-btn"><i class="fa-solid fa-xmark"></i></button></div>
+        <div class="cart-items"></div>
+        <div class="cart-total"><span>Total:</span><span class="cart-total-amount">$0.00</span></div>
+        <button class="btn btn-primary" style="width: 100%;">Checkout</button>
+    </div>
+    <div class="overlay"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('contact-v2-form').addEventListener('submit', (e) => {
+            // Let the natural form submission proceed to thank-you.html
+        });
+    </script>
+</body>
+</html>

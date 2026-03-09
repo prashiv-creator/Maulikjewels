@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Collections | Maulik Jewels</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        .products-page { padding-top: 120px; }
+        .filter-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--glass-border);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .filter-box { display: flex; gap: 1rem; }
+        .filter-box select {
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            background: var(--dark-alt);
+            color: white;
+            border: 1px solid var(--glass-border);
+            font-family: inherit;
+        }
+        .active-filters { margin-bottom: 2rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .filter-chip {
+            padding: 0.3rem 0.8rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .filter-chip i { cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <!-- Header (Same as index) -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                     <i class="fa-solid fa-gem"></i> MAULIK<span>JEWELS</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Collections</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="icon-btn" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button class="icon-btn" id="cart-btn">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <a href="admin-login.html" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Admin Login</a>
+                </div>
+                <button class="menu-toggle"><i class="fa-solid fa-bars-staggered"></i></button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="products-page">
+        <div class="container">
+            <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                <h2>Our Collections</h2>
+                <div class="section-line" style="margin: 1.5rem 0;"></div>
+                <p>Curated selection of fine jewelry for every milestone.</p>
+            </div>
+
+            <div class="filter-section">
+                <div class="filter-box">
+                    <select id="category-filter">
+                        <option value="All">All Categories</option>
+                        <option value="Rings">Rings</option>
+                        <option value="Necklaces">Necklaces</option>
+                        <option value="Earrings">Earrings</option>
+                        <option value="Bracelets">Bracelets</option>
+                    </select>
+                    <select id="material-filter">
+                        <option value="All">All Materials</option>
+                        <option value="18k White Gold">18k White Gold</option>
+                        <option value="18k Yellow Gold">18k Yellow Gold</option>
+                        <option value="14k Rose Gold">14k Rose Gold</option>
+                    </select>
+                </div>
+                <div class="filter-box">
+                    <span style="color: var(--text-muted); font-size: 0.9rem;">Sort by:</span>
+                    <select id="sort-filter">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="newest">Newest First</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid" id="all-products-host">
+                <!-- Products will be injected by script -->
+            </div>
+            
+            <div id="no-products" style="display:none; text-align:center; padding: 4rem 0;">
+                <i class="fa-solid fa-gem" style="font-size: 3rem; color: var(--glass-border); margin-bottom: 1rem;"></i>
+                <h3>No jewelry found matching your criteria.</h3>
+                <p style="color: var(--text-muted);">Try adjusting your filters or search terms.</p>
+                <button onclick="resetFilters()" class="btn btn-primary" style="margin-top: 1.5rem;">Reset Filters</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Area (Same as index) -->
+    <footer style="margin-top: 6rem;">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maulik Jewels. All rights reserved. | <a href="#">Privacy Policy</a></p>
+                <div style="display:flex; gap: 1rem;">
+                    <i class="fa-brands fa-cc-visa"></i>
+                    <i class="fa-brands fa-cc-mastercard"></i>
+                    <i class="fa-brands fa-cc-amex"></i>
+                    <i class="fa-brands fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Same Cart Sidebar Components -->
+    <div id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Shopping Bag</h3>
+            <button id="close-cart" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Subtotal:</span><span class="cart-total-amount">$0.00</span></div>
+            <button class="btn btn-primary" style="width: 100%;">Checkout</button>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
+    <script src="supabase-config.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('all-products-host');
+            const noProducts = document.getElementById('no-products');
+            const categoryFilter = document.getElementById('category-filter');
+            const materialFilter = document.getElementById('material-filter');
+            const sortFilter = document.getElementById('sort-filter');
+
+            // Handle URL Parameters (from homepage categories)
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+            if (categoryParam) {
+                categoryFilter.value = categoryParam;
+            }
+
+            async function renderFilteredProducts() {
+                const category = categoryFilter.value;
+                const material = materialFilter.value;
+                const sortBy = sortFilter.value;
+                
+                let filtered = await getSupabaseProducts();
+
+                // Category Filter
+                if (category !== 'All') {
+                    filtered = filtered.filter(p => p.category === category);
+                }
+
+                // Material Filter
+                if (material !== 'All') {
+                    filtered = filtered.filter(p => p.material === material);
+                }
+
+                // Sorting
+                if (sortBy === 'price-low') {
+                    filtered.sort((a, b) => a.price - b.price);
+                } else if (sortBy === 'price-high') {
+                    filtered.sort((a, b) => b.price - a.price);
+                } else if (sortBy === 'newest') {
+                    filtered.sort((a, b) => b.id - a.id);
+                }
+
+                // Render
+                if (filtered.length === 0) {
+                    container.innerHTML = '';
+                    noProducts.style.display = 'block';
+                } else {
+                    noProducts.style.display = 'none';
+                    container.innerHTML = filtered.map(p => `
+                        <div class="product-card animate-fade">
+                            <div class="product-img">
+                                <img src="${p.image}" alt="${p.name}">
+                                <div class="product-badge">${p.stock < 5 ? 'Limited Stock' : 'Premium'}</div>
+                                <div class="product-wishlist"><i class="fa-regular fa-heart"></i></div>
+                            </div>
+                            <div class="product-info">
+                                <div class="p-meta">${p.category} • ${p.material}</div>
+                                <h3><a href="product-detail.html?id=${p.id}">${p.name}</a></h3>
+                                <div class="p-price">
+                                    <span>$${p.price.toLocaleString()}</span>
+                                    <button onclick="addToCart(${p.id})" class="p-add-cart"><i class="fa-solid fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            window.resetFilters = () => {
+                categoryFilter.value = 'All';
+                materialFilter.value = 'All';
+                sortFilter.value = 'featured';
+                renderFilteredProducts();
+            };
+
+            categoryFilter.addEventListener('change', renderFilteredProducts);
+            materialFilter.addEventListener('change', renderFilteredProducts);
+            sortFilter.addEventListener('change', renderFilteredProducts);
+
+            renderFilteredProducts();
+        });
+    </script>
+</body>
+</html>

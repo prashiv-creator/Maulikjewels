@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Settings | Maulik Jewels Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div style="margin-bottom: 3rem;">
+                <a href="index.html" class="logo" style="color: var(--dark); font-size: 1.5rem;">
+                     <i class="fa-solid fa-gem" style="color: var(--accent);"></i> MAULIK<span>JEWELS</span>
+                </a>
+                <p style="font-size: 0.75rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; margin-top: 5px; letter-spacing: 1px;">Admin Portal</p>
+            </div>
+            
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="admin-dashboard.html"><i class="fa-solid fa-layer-group"></i> <span>Inventory</span></a></li>
+                    <li><a href="admin-orders.html"><i class="fa-solid fa-cart-shopping"></i> <span>Orders</span></a></li>
+                    <li><a href="admin-customers.html"><i class="fa-solid fa-users"></i> <span>Customers</span></a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-line"></i> <span>Analytics</span></a></li>
+                    <li style="margin-top: 2rem;"><a href="admin-settings.html" class="active"><i class="fa-solid fa-gear"></i> <span>Settings</span></a></li>
+                    <li><a href="#" id="admin-logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span>Logout</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="admin-sidebar-user-section" style="position: absolute; bottom: 2rem; left: 2rem; display:flex; gap: 1rem; align-items:center;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: #e2e8f0; display:flex; align-items:center; justify-content:center; flex-shrink: 0;">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div class="admin-sidebar-user-details">
+                    <h5 style="margin:0; font-size: 0.9rem;">Admin User</h5>
+                    <p style="margin:0; font-size: 0.75rem; color: #64748b;">admin@maulikjewels.com</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div style="margin-bottom: 2.5rem; display:flex; justify-content:space-between; align-items:flex-end;">
+                <div>
+                    <p style="font-size: 0.75rem; color: #94a3b8; font-weight: 600; text-transform: uppercase; margin-bottom: 0.5rem;">Admin <span style="margin: 0 5px;">&rsaquo;</span> Store Settings</p>
+                    <h1 style="font-size: 2.2rem; color: var(--dark);">Store Settings</h1>
+                    <p style="color: #64748b; margin-top: 5px;">Manage your brand profile, payments, and global store configurations.</p>
+                </div>
+                <button class="btn btn-primary" style="background: var(--accent); padding: 1.2rem 2.5rem;"><i class="fa-solid fa-floppy-disk"></i> Save All Changes</button>
+            </div>
+
+            <div class="admin-grid">
+                 <div style="display:flex; flex-direction:column; gap: 2rem;">
+                    <!-- General Settings -->
+                    <div class="admin-card">
+                        <h3 style="margin-bottom: 2rem; display:flex; align-items:center; gap: 10px; font-size: 1.3rem;">
+                            <i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> General Settings
+                        </h3>
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                            <div class="admin-form-group">
+                                <label>Store Name</label>
+                                <input type="text" value="Maulik Jewels" placeholder="Your Brand Name">
+                            </div>
+                            <div class="admin-form-group">
+                                <label>Contact Email</label>
+                                <input type="email" value="contact@maulikjewels.com" placeholder="brand@example.com">
+                            </div>
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Store Address</label>
+                            <textarea rows="4" placeholder="123 Luxury Avenue, Diamond District, Mumbai, MH 400001">123 Luxury Avenue, Diamond District, Mumbai, MH 400001</textarea>
+                        </div>
+                        <div style="text-align: right; margin-top: 1.5rem; border-top: 1px solid #f1f5f9; padding-top: 1.5rem;">
+                            <button class="btn-ghost" style="color: var(--accent); font-weight: 700; border:none; background:transparent; cursor:pointer;">Save Section</button>
+                        </div>
+                    </div>
+
+                    <!-- Payment Config -->
+                    <div class="admin-card">
+                        <h3 style="margin-bottom: 2rem; display:flex; align-items:center; gap: 10px; font-size: 1.3rem;">
+                            <i class="fa-solid fa-credit-card" style="color: #3182ce;"></i> Payment Configurations
+                        </h3>
+                        <div style="display:flex; flex-direction:column; gap: 1rem;">
+                            <div class="config-item">
+                                <div style="display:flex; align-items:center; gap: 1rem;">
+                                    <div class="config-icon"><i class="fa-brands fa-stripe"></i></div>
+                                    <div>
+                                        <div style="font-weight: 700;">Stripe Payments</div>
+                                        <div style="font-size: 0.75rem; color: #64748b;">Enable secure credit card processing</div>
+                                    </div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="config-item">
+                                <div style="display:flex; align-items:center; gap: 1rem;">
+                                    <div class="config-icon"><i class="fa-brands fa-paypal"></i></div>
+                                    <div>
+                                        <div style="font-weight: 700;">PayPal Integration</div>
+                                        <div style="font-size: 0.75rem; color: #64748b;">Allow digital wallet payments</div>
+                                    </div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="admin-form-group" style="margin-top: 1.5rem;">
+                                <label>Currency Preference</label>
+                                <select style="width: 100%; padding: 1rem; background: #f8fafc; border: 1px solid #f1f5f9; border-radius: 10px;">
+                                    <option>INR - Indian Rupee (₹)</option>
+                                    <option>USD - United States Dollar ($)</option>
+                                    <option>EUR - Euro (&euro;)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+
+                 <!-- Right Side: Shipping -->
+                 <div class="admin-card">
+                    <h3 style="margin-bottom: 2rem; display:flex; align-items:center; gap: 10px; font-size: 1.3rem;">
+                        <i class="fa-solid fa-truck-fast" style="color: #ed8936;"></i> Shipping Methods
+                    </h3>
+                    <div style="display:flex; flex-direction:column; gap: 1.5rem;">
+                        <div class="shipping-method">
+                            <div style="display:flex; align-items:center; gap: 1rem;">
+                                <div class="shipping-tag">FED</div>
+                                <div>
+                                    <div style="font-weight: 700; font-size: 0.95rem;">FedEx Express</div>
+                                    <div style="font-size: 0.75rem; color: #64748b;">2-3 Business Days</div>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-weight: 800; color: var(--dark);">&euro;500.00</div>
+                                <button class="link-btn">EDIT RATE</button>
+                            </div>
+                        </div>
+                        <div class="shipping-method">
+                            <div style="display:flex; align-items:center; gap: 1rem;">
+                                <div class="shipping-tag dhl">DHL</div>
+                                <div>
+                                    <div style="font-weight: 700; font-size: 0.95rem;">DHL Global</div>
+                                    <div style="font-size: 0.75rem; color: #64748b;">5-7 Business Days</div>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-weight: 800; color: var(--dark);">&euro;1,200.00</div>
+                                <button class="link-btn">EDIT RATE</button>
+                            </div>
+                        </div>
+                        <button class="add-shipping-btn"><i class="fa-solid fa-plus-circle"></i> Add New Shipping Method</button>
+                    </div>
+                 </div>
+            </div>
+        </main>
+    </div>
+
+    <style>
+        .config-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #f1f5f9;
+        }
+        .config-icon { font-size: 1.8rem; color: #475569; }
+
+        /* Switch Toggle */
+        .switch { position: relative; display: inline-block; width: 45px; height: 24px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #cbd5e1; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent); }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        .shipping-method {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border: 1px solid #f1f5f9;
+            border-radius: 14px;
+            transition: all 0.2s;
+        }
+        .shipping-method:hover { border-color: var(--accent); background: #f0fff4; }
+        .shipping-tag { font-weight: 800; color: #3182ce; background: #ebf8ff; padding: 0.5rem 1rem; border-radius: 8px; font-size: 0.7rem; }
+        .shipping-tag.dhl { color: #805ad5; background: #faf5ff; }
+        
+        .link-btn { border: none; background: transparent; color: var(--accent); font-weight: 800; font-size: 0.7rem; cursor: pointer; padding: 0; margin-top: 5px; }
+
+        .add-shipping-btn {
+            width: 100%;
+            padding: 1.5rem;
+            border: 2px dashed #e2e8f0;
+            background: rgba(230, 254, 245, 0.3);
+            border-radius: 14px;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .add-shipping-btn:hover { border-color: var(--accent); background: rgba(230, 254, 245, 0.5); }
+    </style>
+
+    <script src="admin.js"></script>
+</body>
+</html>
